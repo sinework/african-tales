@@ -21,7 +21,13 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
+# gem 'bootstrap-sass'
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
+gem 'jquery-rails'
+
+gem 'bootstrap', '~> 4.5', '>= 4.5.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -36,12 +42,18 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :test do
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'rspec'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  # gem 'chromedriver-helper', '~> 2.1', '>= 2.1.1'
+  gem 'chromedriver-helper', '1.2.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
