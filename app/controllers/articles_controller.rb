@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
+  include ApplicationHelper
+  
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_only!, only: %i[new create update]
 
   # GET /articles
   # GET /articles.json
