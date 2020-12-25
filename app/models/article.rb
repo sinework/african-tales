@@ -4,4 +4,5 @@ class Article < ApplicationRecord
     has_many :votes, dependent: :destroy
     has_many :tags, dependent: :destroy
     has_many :categories, through: :tags
+    has_one_attached :image
 end
