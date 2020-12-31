@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   include ApplicationHelper
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
   before_action :require_user, only: %i[new create update edit]
 
   # GET /articles
@@ -12,23 +12,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   # GET /articles/1.json
-  def show
-  end
-  def destroy
-    @article.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  def show; end
+
   # GET /articles/new
   def new
     @article = Article.new
   end
 
   # GET /articles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /articles
   # POST /articles.json
@@ -73,13 +65,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:author_id, :title, :text, :image, :vote_count)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:author_id, :title, :text, :image, :vote_count)
+  end
 end

@@ -1,13 +1,13 @@
-
 module ApplicationHelper
   # rubocop:disable Layout/LineLength
   def signed_in_only!
     redirect_to new_user_session_path unless current_user
   end
+
   def navigation_buttons
     link = capture { link_to 'Home', articles_path, class: 'py-2 px-3 header-links text-decoration-none' }
     priority_categories(5).each do |category|
-      link << capture { link_to category.name, category_path(category), class: 'py-2 px-3 header-links text-decoration-none'  }
+      link << capture { link_to category.name, category_path(category), class: 'py-2 px-3 header-links text-decoration-none' }
     end
     link << separetor if logged_in?
     if logged_in?
@@ -16,19 +16,19 @@ module ApplicationHelper
     link
   end
 
-
   def user_status
     links = []
     if logged_in?
       links[0] = link_to 'New Article', new_article_path, class: 'header-links border-right pr-1'
       links[1] = link_to 'Log out', logout_path, method: 'delete', class: 'header-links'
-     
+
     else
       links[0] = link_to 'Login', login_path, class: 'header-links border-right pr-1'
       links[1] = link_to 'Sign Up', signup_path, class: 'header-links'
     end
     links
   end
+
   def separetor
     content_tag(:ins, '|', class: 'd-none d-md-block')
   end
@@ -44,18 +44,31 @@ module ApplicationHelper
   end
 
   def image_render(article)
-    return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image
+    return image_tag('none.png', class: 'card-img card-img-top') unless defined? article.image
 
     if article.image?
-      image_tag(article.image.url, class: 'w-100 h-100')
+      image_tag(article.image.url, class: 'card-img card-img-top')
     else
-      image_tag('none.png', class: 'h-100 w-100 border')
+      image_tag('none.png', class: 'card-img card-img-top')
     end
   end
-def imager (article)
-  
+
+  def render_image(article); end
+
+  def imager(article)
     article.image
-end
+  end
+
+  def image_renderer(article)
+    return 'none.png' unless defined? article.image
+
+    if article.image?
+      url_for(top_voted_article.image)
+    else
+      'none.png'
+    end
+  end
+
   def extract_title(article)
     if defined? article.title
       article.title
@@ -71,8 +84,6 @@ end
       'No article texts found here'
     end
   end
-
-  
 
   def edit_access(article)
     link_to 'edit', edit_article_path(article), class: 'btn theme-bg-2 text-white mt-3' if current_user == article.user

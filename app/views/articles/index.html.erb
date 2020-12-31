@@ -3,7 +3,7 @@
 <div class="landing bg-dark">
     <div class="card border-0 overflow-hidden flex-wrap " style="height: 75vh;">
   
-              <img class="card-img card-img-top" src="<%==(url_for(top_voted_article.image)) %>" alt="Card image">
+              <img class="card-img card-img-top" src="<%=(url_for(top_voted_article.image)) %>" alt="image">
               <div class="card-img-overlay d-flex flex-column justify-content-end">
                 <h5 class="card-title word-break text-truncate d-block text-capitalize landing-title text-wrap"><%= top_voted_article.title %></h5>
                 <p class="card-text word-break text-truncate d-block text-capitalize text-white landing-text"><%= top_voted_article.text %></p>
@@ -18,7 +18,7 @@
  <%priority_categories(4).each do |category|%>
     <div class="card border-0  overflow-hidden  w-25 " style="height: 15rem;">
       <%= link_to category_path(category) do%>
-                <img class="card-img card-img-bottom" src="<%==(url_for(imager top_of_category category)) %>" alt="Card image">
+                <img class="card-img card-img-bottom" src="<%=(url_for(imager top_of_category category)) %>" alt="image">
                 <div class="card-img-overlay d-flex flex-column ">
                 <h4 class="font-weight-bolder  underline pb-2 mt-2 mb-5 mr-auto text-wrap landing-category-name border-bt "><%= category.name%></h4>
                 <h5 class="mb-4  text-wrap landing-category-article mt-5 "><%= extract_title top_of_category category %></h5>
