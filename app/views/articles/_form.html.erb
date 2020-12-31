@@ -1,17 +1,33 @@
-
+<div class="card text-dark bg-white container w-75 ">
+<div class="card-header w-100">
+<h4>Create an article</h4>
+</div>
+<div class="card-body">
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :author_id %>
+    
     <%= f.input :title %>
     <%= f.input :text %>
-    <%= f.input :image %>
-    <%= f.input :vote_count %>
+    <%= f.input :image, direct_upload: true , class:"text-muted" %>
+    <div class="d-flex text-dark">
+        <% priority_categories().each do |category| %>
+          <div class="form-group pr-4">
+            <%= label_tag "#{category.name}" %>
+            <%= check_box_tag "category[]", category.id %>
+          </div>
+        <% end %>
+    </div>
+   
   </div>
 
   <div class="form-actions">
+    <div class="btn">
     <%= f.button :submit %>
+    </div>
   </div>
 <% end %>
+</div>
+</div>
