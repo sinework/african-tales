@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AfricanTales</title>
+    <title>African Tales</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/ethiopia-on-rails/image/upload/v1603732397/logo_fk0ggu.png"/>
   </head>
 
-  <body>
-  <div class="container">
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
-    </div>
+  <body class="h-auto">
+    <% if flash[:notice]%>
+      <div class="alert alert-info alert-dismissible bg-info text-info text-center bg-light w-75 mx-auto shadow-sm py-5 bg-white alert-custom form-border">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong><%= notice.html_safe%></strong>
+      </div>
+    <%end%>
+    <% if flash[:alert]%>
+      <div class="alert alert-info alert-dismissible text-center text-danger bg-light m-0 w-75 mx-auto shadow-sm py-5 bg-white alert-custom form-border">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong class="h5"><%= alert.html_safe%></strong>
+      <div>
+        <a href="#" class="btn btn-light mt-4 px-2" data-dismiss="alert" aria-label="close">Ok</a>
+      </div>
+      </div>
+    <%end%>
+    <header class=" sticky-top" >
+     <div class="d-flex  flex-row header-div border-bot py-2 px-3 justify-content-between">
+          <div class="navbar-brand header-links ml-3">
+          African tales
+          </div>
+
+          <div class="d-flex center flex-row justify-content-around category-links">
+                  <%= navigation_buttons%>
+          </div>
+
+          <div class="login-link d-flex flex-row justify-content-around mr-1">
+          <div class="">
+          <%=user_status[0]%>
+          </div>
+          <div class="">
+          <%=user_status[1]%>
+          </div>
+          </div>
+
+     
+     </div>
+    </header>
+    <main class="">
+      <%= yield %>
+    </main>
+<%= render "layouts/footer" %>
   </body>
 </html>
