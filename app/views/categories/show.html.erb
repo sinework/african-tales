@@ -1,0 +1,20 @@
+
+<div class="row p-2 m-2">
+<%@category.articles.each do |article|%>
+<div class=" col-lg-6 card row w-100 card-style " style=" max-height:18rem">
+
+  <img class="card-img-top col-lg-6 " src="<%=(url_for(article.image)) %>" alt="Card image cap">
+
+  <div class="card-body col-lg-6 ">
+    <h5 class="  card-title card-text-style  "><%=article.title%></h5>
+    <p class="  card-text card-text-style "><%=article.text%></p>
+     <p class="h6 align-self-end">Has <%= pluralize(article.vote_count, 'vote')%></p>
+   
+    <a href="#" >  <%= vote_button article%> </a>
+    
+  </div>
+</div>
+
+<%end%>
+
+</div>
