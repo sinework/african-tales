@@ -33,8 +33,6 @@ module ApplicationHelper
     content_tag(:ins, '|', class: 'd-none d-md-block')
   end
 
-
-
   def image_render(article)
     return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
@@ -44,6 +42,7 @@ module ApplicationHelper
       image_tag('none.png', class: 'h-100 w-100 border')
     end
   end
+
   def render_image(article); end
 
   def imager(article)

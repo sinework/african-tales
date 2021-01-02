@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.first
-    @top_voted= Article.top_voted
+    @top_voted = Article.top_voted
   end
 
   # GET /articles/1
