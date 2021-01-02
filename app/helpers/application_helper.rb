@@ -33,26 +33,17 @@ module ApplicationHelper
     content_tag(:ins, '|', class: 'd-none d-md-block')
   end
 
-  def sidebar_login
-    return if logged_in?
 
-    if params[:q] == 'sign up'
-      render '/users/sign_up'
-    else
-      render '/sessions/login'
-    end
-  end
 
   def image_render(article)
-    return image_tag('none.png', class: 'card-img card-img-top') unless defined? article.image
+    return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
-    if article.image?
-      image_tag(article.image.url, class: 'card-img card-img-top')
+    if article.image.attached?
+      image_tag(cloudinary_url(article.image.key, options = {}), class: 'card-img card-img-top w-100 h-100')
     else
-      image_tag('none.png', class: 'card-img card-img-top')
+      image_tag('none.png', class: 'h-100 w-100 border')
     end
   end
-
   def render_image(article); end
 
   def imager(article)
@@ -60,12 +51,12 @@ module ApplicationHelper
   end
 
   def image_renderer(article)
-    return 'none.png' unless defined? article.image
+    return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
-    if article.image?
-      url_for(top_voted_article.image)
+    if article.image.attached?
+      image_tag(cloudinary_url(article.image.key, options = {}), class: 'card-img col-lg-6 card-img-top w-100 h-100')
     else
-      'none.png'
+      image_tag('none.png', class: 'h-100 w-100 border')
     end
   end
 

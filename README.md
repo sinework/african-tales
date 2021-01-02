@@ -26,16 +26,16 @@ Things you may want to cover:
 [![Issues][issues-shield]][issues-url]
 
 
-# See the Live version here - > [Live Link]()
+# See the Live version here - > [Live Link](https://glacial-harbor-53995.herokuapp.com/)
 
 ### Landing Interface
-<img src="./app/assets/images/Landing.png" width="auto" height="auto" />
+<img src="./app/assets/images/Landing.PNG" width="auto" height="auto" />
 
 ### Login Interface
-<img src="./app/assets/images/Login.png" width="auto" height="auto" />
+<img src="./app/assets/images/Login.PNG" width="auto" height="auto" />
 
 ### New article creating Interface
-<img src="./app/assets/images/newarticle.png" width="auto" height="auto" />
+<img src="./app/assets/images/newarticle.PNG" width="auto" height="auto" />
 
 # Built With
 

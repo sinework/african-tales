@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_12_25_093007) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.bigint "author_id"
+    t.bigint "author_id", null: false
     t.string "title"
     t.text "text"
     t.string "image"

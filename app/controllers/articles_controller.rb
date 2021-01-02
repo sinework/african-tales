@@ -7,7 +7,8 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.first
+    @top_voted= Article.top_voted
   end
 
   # GET /articles/1
