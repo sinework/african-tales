@@ -44,9 +44,8 @@ Things you may want to cover:
 - HTML
 - CSS
 - Bootstrap
-- Carrierwave
+- Active-storage
 - Cloudinary
-- Omniauth
 - Rspec
 - Capybara
 - Bcrypt
