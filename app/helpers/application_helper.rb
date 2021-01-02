@@ -37,7 +37,7 @@ module ApplicationHelper
     return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
     if article.image.attached?
-      image_tag(cloudinary_url(article.image.key, options = {}), class: 'card-img card-img-top w-100 h-100')
+      image_tag(cloudinary_url(article.image.key), class: 'card-img card-img-top w-100 h-100')
     else
       image_tag('none.png', class: 'h-100 w-100 border')
     end
@@ -53,7 +53,7 @@ module ApplicationHelper
     return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
     if article.image.attached?
-      image_tag(cloudinary_url(article.image.key, options = {}), class: 'card-img col-lg-6 card-img-top w-100 h-100')
+      image_tag(cloudinary_url(article.image.key), class: 'card-img col-lg-6 card-img-top w-100 h-100')
     else
       image_tag('none.png', class: 'h-100 w-100 border')
     end
