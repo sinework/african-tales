@@ -3,8 +3,7 @@
 <%@category.articles.each do |article|%>
 <div class=" col-lg-6 card row w-100 card-style " style=" max-height:18rem">
 
-  <img class="card-img-top col-lg-6 " src="<%=(url_for(article.image)) %>" alt="Card image cap">
-  <% image_renderer article%>
+  <%= image_renderer article%>
   <div class="card-body col-lg-6 ">
     <h5 class="  card-title card-text-style  "><%=article.title%></h5>
     <p class="  card-text card-text-style "><%=article.text%></p>
