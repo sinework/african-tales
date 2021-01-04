@@ -63,7 +63,7 @@ module ApplicationHelper
     return image_tag('none.png', class: 'h-100 w-100 border') unless defined? article.image.attached?
 
     if article.image.attached?
-      image_tag(cloudinary_url(article.image.key), class: 'card-img col-lg-6 card-img-top w-100 h-100')
+      image_tag(cloudinary_url(article.image.key), class: 'cat-image ')
     else
       image_tag('none.png', class: 'h-100 w-100 border')
     end
@@ -78,8 +78,8 @@ module ApplicationHelper
   end
 
   def extract_text(article)
-    if  !article.blank?
-       truncate(article)
+    if  !article.text.blank?
+       truncate(article.text)
     else
       'No article texts found here'
     end
