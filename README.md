@@ -69,7 +69,6 @@
 
 - Go to `http://localhost:3000/`
 
--  Login with github and google will only work in the live version because the api keys are not available publicly.
 
 
 # Run tests
@@ -116,11 +115,5 @@ None
 [issues-shield]: https://img.shields.io/github/issues/sinework/african-tales
 [issues-url]: https://github.com/Berabjesus/Ethiopia-on-Rails/issues
 
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
