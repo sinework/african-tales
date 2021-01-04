@@ -24,11 +24,21 @@ module ApplicationHelper
 
     else
       links[0] = link_to 'Login', login_path, class: 'header-links border-right pr-1'
-      links[1] = link_to 'Sign Up', signup_path, class: 'header-links'
+      links[1] = link_to 'Sign Up', new_user_path, class: 'header-links'
     end
     links
   end
+  def truncate(text)
 
+    if text.length>50
+    ending="..."
+ sliced=text[0...70]
+ new_text=sliced+ending
+ new_text
+ else
+  text
+ end
+    end
   def separetor
     content_tag(:ins, '|', class: 'd-none d-md-block')
   end
@@ -68,8 +78,8 @@ module ApplicationHelper
   end
 
   def extract_text(article)
-    if defined? article.text
-      article.text
+    if  !article.blank?
+       truncate(article)
     else
       'No article texts found here'
     end
