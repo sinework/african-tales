@@ -17,6 +17,10 @@ RSpec.describe Article, type: :model do
     it { is_expected.to have_many(:categories) }
   end
   describe 'Validations', type: :model do
+    it 'Title cannot be longer than 30' do
+      subject.title = '0' * 1001
+      expect(subject).not_to be_valid
+    end
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:text) }
   end

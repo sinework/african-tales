@@ -1,20 +1,21 @@
 
-<div class="row p-2 m-2">
-<%@category.articles.each do |article|%>
-<div class=" col-lg-6 card row w-100 card-style " style=" max-height:18rem">
 
-  <%= image_renderer article%>
-  <div class="card-body col-lg-6 ">
-    <h5 class="  card-title card-text-style  "><%=article.title%></h5>
-    <p class="  card-text card-text-style "><%=article.text%></p>
-    <a class="text-decoration-none text-dark p-1">Read more..</a>
-     <p class="h6 align-self-end">Has <%= pluralize(article.vote_count, 'vote')%></p>
+<div class="row container-fluid mb-2">
+<%@category.articles.each do |article|%>
+    <div class="col-lg-6 col-sm-4  card-holder " style="max-height:18rem;">
+        <div class="row border">
+            <div class="col-6 image-holder-div">
+             <%= image_renderer article%>
+            </div>
+            <div class="col-6 ">
+               <h5 class="  card-title title-style card-text-style "><%=article.title%></h5>
+    <p class="  card-text card-text-style "><%=extract_text article%></p>
+    <a class="text-decoration-none  title-style text-dark p-1 ">Read more..</a>
+     <p class="h6 mt-5 align-self-end">Has <%= pluralize(article.vote_count, 'vote')%></p>
    
     <a href="#" >  <%= vote_button article%> </a>
-    
-  </div>
-</div>
-
+            </div>
+        </div>
+    </div>
 <%end%>
-
 </div>

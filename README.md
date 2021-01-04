@@ -115,5 +115,3 @@ None
 [issues-shield]: https://img.shields.io/github/issues/sinework/african-tales
 [issues-url]: https://github.com/Berabjesus/Ethiopia-on-Rails/issues
 
-
-* ...
