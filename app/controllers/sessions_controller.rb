@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
 
-      format.html { redirect_to '/signup', notice: '' }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      redirect_to login_path, alert: 'Username or password not found'
 
     end
   end
