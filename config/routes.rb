@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   
-  resources :articles do
+  resources :articles, only:[:create, :new , :index] do
     resources :votes, only: [:create, :destroy]
   end
   resources :categories, only: [:show]
-  resources :users
+  resources :users, only:[:new, :create]
   root to: 'articles#index'
-  get 'signup' => 'users#new'
+ 
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
