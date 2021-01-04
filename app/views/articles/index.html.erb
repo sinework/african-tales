@@ -1,0 +1,35 @@
+<div class="article mb-4">
+ 
+<div class="landing bg-dark">
+    <div class="card border-0 overflow-hidden flex-wrap " style="height: 75vh;">
+  
+              <%= image_render top_voted_article%>
+              <div class="card-img-overlay d-flex flex-column justify-content-end">
+                <h5 class="card-title word-break text-truncate d-block text-capitalize landing-title text-wrap"><%= extract_title top_voted_article %></h5>
+                <p class="card-text word-break text-truncate d-block text-capitalize text-white landing-text"><%= extract_text top_voted_article %></p>
+              </div>
+             
+    </div>
+
+
+</div>
+
+<div class="categories d-flex flex-row flex-wrap">
+ <%priority_categories(4).each do |category|%>
+    <div class="card border-0  overflow-hidden  w-25 " style="height: 15rem;">
+      <%= link_to category_path(category) do%>
+               <%= image_render top_of_category category%>
+                <div class="card-img-overlay d-flex flex-column ">
+                <h4 class="font-weight-bolder  underline pb-2 mt-2 mb-5 mr-auto text-wrap landing-category-name border-bt "><%= category.name%></h4>
+                <h5 class="mb-4  text-wrap landing-category-article mt-5 "><%= extract_title top_of_category category %></h5>
+               </div>
+        
+      <%end%>
+    </div>
+  <%end%>
+</div>
+
+
+
+
+</div>

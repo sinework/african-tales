@@ -1,0 +1,17 @@
+
+<div class="user-form d-flex flex-row justify-content-around p-5">
+<div class="card mt-5" style="width: 18rem; height:18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sign up</h5>
+    
+<div class="form">
+
+<%= form_for(@user) do |f| %>
+<%= f.text_field :username, :placeholder => "name", class:"form-control form-control-sm mb-2" %>
+<%= f.password_field :password, :placeholder => "Password",class:"form-control form-control-sm mb-3" %>
+<%= f.submit "Create an account", class: "btn-submit btn btn-primary" %>
+<% end %>
+</div>
+  </div>
+</div>
+</div>
