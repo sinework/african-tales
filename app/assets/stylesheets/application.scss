@@ -3,25 +3,6 @@
 @import 'articles';
 @import 'categories';
 
-// .header, .footer{
-//     background:white;
-//     border-bottom:  rgb(68, 66, 66) ;
-//     border-width: thick;
-//     a{
-//         text-decoration: none;
-//         font-weight: 500 ;
-//         font-family: Arial, Helvetica, sans-serif;
-//         color: black;
-//     }
-
-// }
-// .center{
-//     margin: 0;
-//     padding: 0;
-// }
-// main{
-//     border-top: thick black;
-// }
 .header-div {
   background: white;
   position: sticky;
@@ -67,19 +48,16 @@ a:active {
   height: 90vh;
   position: relative;
 }
-.card-holder{
+
+.card-holder {
   max-height: 18rem;
- 
 }
 
-.image-card{
-
-
-}
-.card-holder-div{
+.card-holder-div {
   height: 18rem;
 }
-.cat-image{
+
+.cat-image {
   height: 18rem;
   width: inherit;
   object-fit: cover;

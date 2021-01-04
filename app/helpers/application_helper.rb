@@ -28,17 +28,18 @@ module ApplicationHelper
     end
     links
   end
-  def truncate(text)
 
-    if text.length>50
-    ending="..."
- sliced=text[0...70]
- new_text=sliced+ending
- new_text
- else
-  text
- end
+  def truncate(text)
+    if text.length > 50
+      ending = '...'
+      sliced = text[0...70]
+      sliced + ending
+
+    else
+      text
     end
+  end
+
   def separetor
     content_tag(:ins, '|', class: 'd-none d-md-block')
   end
@@ -78,8 +79,8 @@ module ApplicationHelper
   end
 
   def extract_text(article)
-    if  !article.text.blank?
-       truncate(article.text)
+    if !article.text.blank?
+      truncate(article.text)
     else
       'No article texts found here'
     end
